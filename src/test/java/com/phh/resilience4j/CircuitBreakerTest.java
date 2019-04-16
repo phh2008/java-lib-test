@@ -1,6 +1,8 @@
 package com.phh.resilience4j;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
+import io.github.resilience4j.retry.Retry;
+import io.github.resilience4j.retry.RetryConfig;
 import io.vavr.control.Try;
 import org.junit.Test;
 
@@ -33,6 +35,15 @@ public class CircuitBreakerTest {
         });
 
         System.out.println(ret.get());
+    }
+
+    @Test
+    public void test2() {
+        Try<Integer> ret = Try.ofSupplier(() -> {
+            return 0 / 0;
+        });
+        System.out.println(ret.isFailure());
+        System.out.println(ret.isSuccess());
     }
 
 
