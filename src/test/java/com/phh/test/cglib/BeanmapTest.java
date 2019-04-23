@@ -1,6 +1,7 @@
 package com.phh.test.cglib;
 
 import net.sf.cglib.beans.BeanMap;
+import net.sf.cglib.core.ReflectUtils;
 import org.junit.Test;
 
 import java.time.LocalDate;
