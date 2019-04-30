@@ -46,6 +46,19 @@
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- java 基准测试框架 -->
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.21</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>1.21</version>
+            <scope>test</scope>
+        </dependency>
         <!-- log -->
         <dependency>
             <groupId>org.slf4j</groupId>
