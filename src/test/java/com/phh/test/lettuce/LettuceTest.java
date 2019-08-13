@@ -51,6 +51,28 @@ public class LettuceTest {
         System.out.println(cache);
     }
 
+    @Test
+    public void codec2() {
+        StatefulRedisConnection<String, Object> connection = client.connect(new SerializedObjectCodec());
+        RedisCommands<String, Object> sync = connection.sync();
+        String ret = sync.set("textKey", "abc123");
+        System.out.println("return ::" + ret);
+        Object val = sync.get("textKey");
+        System.out.println(val.getClass());
+        System.out.println(val);
+    }
+
+    @Test
+    public void codec3() {
+        StatefulRedisConnection<String, Object> connection = client.connect(new SerializedObjectCodec());
+        RedisCommands<String, Object> sync = connection.sync();
+        String ret = sync.set("longKey", 123456L);
+        System.out.println("return ::" + ret);
+        Object val = sync.get("longKey");
+        System.out.println(val.getClass());
+        System.out.println(val);
+    }
+
     /**
      * 执行lua脚本
      */

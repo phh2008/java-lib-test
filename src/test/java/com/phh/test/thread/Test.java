@@ -13,6 +13,9 @@ import java.io.IOException;
  */
 public class Test {
 
+    /**
+     * 守护线程的特性
+     */
     @org.junit.Test
     public void test1() {
         Thread thread = new Thread(new Runnable() {

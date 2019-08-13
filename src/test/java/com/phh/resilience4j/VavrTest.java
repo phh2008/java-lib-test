@@ -1,5 +1,7 @@
 package com.phh.resilience4j;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import io.vavr.API;
 import io.vavr.Function2;
 import io.vavr.Function3;
@@ -44,6 +46,9 @@ public class VavrTest {
 
     }
 
+    class T extends TypeReference<Tuple3<String, Boolean, Integer>> {
+    }
+
     /**
      * 元组，可包装多反回值
      */
@@ -56,6 +61,12 @@ public class VavrTest {
         Assert.assertTrue("abc".equals(var1));
         Assert.assertTrue(var2);
         Assert.assertTrue(var3 == 23);
+
+        //序列化
+        String json = JSON.toJSONString(tuple);
+        System.out.println("json>>>>:" + json);
+        Tuple3<String, Boolean, Integer> o = JSON.parseObject(json, new T().getType());
+        System.out.println(o);
     }
 
     /**
