@@ -22,7 +22,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        String content = "hello ,I am from server 结束！";
+        String content = "hello ,I am from client 结束！";
         MyProtoBean bean = new MyProtoBean((byte) 1, (byte) 2, content.getBytes("UTF-8").length, content);
         ctx.writeAndFlush(bean);
     }

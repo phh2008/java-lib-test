@@ -37,6 +37,7 @@ public class Client {
                         @Override
                         protected void initChannel(Channel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
+                            //pipeline.addLast(new StringEncoder());
                             pipeline.addLast(new MyProtoEncoder());
                             pipeline.addLast(new MyProtoDecoder(MAX_FRAME_LENGTH,
                                     LENGTH_FIELD_OFFSET,
