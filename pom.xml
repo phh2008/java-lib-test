@@ -206,6 +206,14 @@
             <artifactId>itext-asian</artifactId>
             <version>5.2.0</version>
         </dependency>
+
+        <!-- guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
+
     </dependencies>
 
 </project>
