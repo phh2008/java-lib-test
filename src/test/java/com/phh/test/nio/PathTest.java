@@ -2,11 +2,11 @@ package com.phh.test.nio;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.io.File;
 
 /**
  * 描述
@@ -19,7 +19,7 @@ public class PathTest {
 
     @Test
     public void test() throws IOException {
-        Path path = Paths.get( "/home/", "/temp5", "2023/");
+        Path path = Paths.get("/home/", "/temp5", "2023/");
         if (!Files.exists(path)) {
             Path path2 = Files.createDirectories(path);
             System.out.println(path2.toAbsolutePath().normalize());
@@ -47,6 +47,28 @@ public class PathTest {
         if (!file.exists()) {
             file.mkdirs();
         }
+    }
+
+    @Test
+    public void test3() throws IOException {
+        Path root = Paths.get("/home");
+        Path sub = Paths.get("temp6/2020"); // /temp6/2020
+        Path fullPath = root.resolve(sub);
+        if (!Files.exists(fullPath)) {
+            Files.createDirectories(fullPath);
+        }
+        System.out.println("full path: " + fullPath.toAbsolutePath());
+        System.out.println("root path: " + root.toAbsolutePath());
+        System.out.println("sub path: " + sub.toAbsolutePath());
+    }
+
+    @Test
+    public void test4(){
+
+        File file=new File("/xxx//aaa/ccc\\bbb/d");
+        System.out.println(file.toPath().toAbsolutePath().normalize().toString());
+        System.out.println(file.toPath().toFile().getPath());
+
     }
 
 
